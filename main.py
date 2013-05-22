@@ -17,6 +17,7 @@
 #
 # Koen Klinkers k.klinkers@gmail.com
 import os
+import time
 
 #load images
 Images={}
@@ -43,20 +44,20 @@ def organiser(answer):
 
 def mainscreen(message):
     os.system("clear")
-    print Images["mainscreen"]
+    imageprint("mainscreen") 
     answer=raw_input(message+"\ntype :    ")
     organiser(answer)
 
 def helpscreen():
     os.system("clear")
-    print Images["help"]
+    imageprint("help")
     answer=raw_input("\ntype :    ")
     organiser(answer)
 
 
 def showImage(image,message):
     os.system("clear")
-    print Images[image]
+    imageprint(image)
     answer=raw_input(message+"\ntype :    ")
     organiser(answer)
 
@@ -64,10 +65,13 @@ def showImage(image,message):
 
 def imageload(filename):
     with open(filename, 'r') as f:
-        image = f.read()
+        image = f.readlines()
     Images[filename]=image
 
-
+def imageprint(image):
+    for line in Images[image]:
+        print line[:-1]
+        time.sleep(0.02)
 #-------------------------------
 if __name__ == "__main__":
     main()
