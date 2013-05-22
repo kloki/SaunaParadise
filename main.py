@@ -24,8 +24,12 @@ Images={}
 
 def main():
     imageload("roanne")
+    imageload("koen")
     imageload("mainscreen")
     imageload("help")
+
+
+    #begin
     mainscreen("How can I be of you service?")
     
 def organiser(answer):
@@ -34,8 +38,10 @@ def organiser(answer):
         exit()
     elif answer=="help":
         helpscreen()
-    elif "face" in words:
-        showImage("roanne", "this is my face")
+    elif "face" in words and "her" in words:
+        showImage("roanne", "this is her face")
+    elif "face" in words and "his" in words:
+        showImage("koen", "this is his face")
     elif "\"" in answer or "\'" in answer:
         mainscreen("These efforts are futile.")
     else:
