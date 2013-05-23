@@ -33,6 +33,7 @@ def main():
     mainscreen("How can I be of you service?")
     
 def organiser(answer):
+    answer=answer.lower()
     words=answer.split()
     if answer=="exit":
         exit()
