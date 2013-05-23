@@ -27,7 +27,7 @@ def main():
     imageload("koen")
     imageload("mainscreen")
     imageload("help")
-
+    imageload("banner")
 
     #begin
     mainscreen("How can I be of you service?")
@@ -44,19 +44,21 @@ def organiser(answer):
     elif "face" in words and "his" in words:
         showImage("koen", "this is his face")
     elif "\"" in answer or "\'" in answer:
-        mainscreen("These efforts are futile.")
+        mainscreen("These efforts are futile............... Laurens Aarnoudse")
     else:
         mainscreen("I dont understand, try again.")
 
 
 def mainscreen(message):
     os.system("clear")
+    imageprint("banner")
     imageprint("mainscreen") 
     answer=raw_input(message+"\ntype :    ")
     organiser(answer)
 
 def helpscreen():
     os.system("clear")
+    imageprint("banner")
     imageprint("help")
     answer=raw_input("\ntype :    ")
     organiser(answer)
