@@ -29,6 +29,7 @@ def main():
     imageload("help")
     imageload("banner")
     imageload("template")
+    imageload("loading")
     #begin
     mainscreen("How can I be of you service?")
     
@@ -233,9 +234,8 @@ def questions(number):
 
 
 
-
-
 def paradise(paradise):
+    imageprint("loading")
     mainscreen("You are in "+paradise)
 
 
