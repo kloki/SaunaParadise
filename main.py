@@ -28,7 +28,7 @@ def main():
     imageload("whoami")
     imageload("help")
     imageload("banner")
-
+    imageload("template")
     #begin
     mainscreen("How can I be of you service?")
     
@@ -42,6 +42,8 @@ def organiser(answer):
         showImage("help","")
     elif answer=="paradise":
         questions(1)
+    elif answer=="test":
+        showImage("template","this is the last line")
     elif answer=="who are you" or answer=="what are you" or "p.a.r.a.d.i.s.e." in words:
         showImage("whoami", "")
     elif "face" in words and "her" in words:
