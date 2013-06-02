@@ -43,8 +43,9 @@ def organiser(answer):
     elif answer=="paradise":
         questions(1)
     elif answer=="test":
-        showImage("template","this is the last line")
         playsound("Eden.wav")
+        showImage("template","this is the last line")
+        
     elif answer=="who are you" or answer=="what are you" or "p.a.r.a.d.i.s.e." in words:
         showImage("whoami", "")
     elif "face" in words and "her" in words:
@@ -254,7 +255,8 @@ def showImage(image,message):
     organiser(answer)
 
 def playsound(sound):
-    os.system("play sounds/"+sound+">-q &")
+    print "jee"
+    os.system("play sounds/Eden.wav -q 2>/dev/null &")
 
 def sanatize(answer):
     
