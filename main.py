@@ -237,7 +237,7 @@ def questions(number):
 
 
 def paradise(paradise):
-    imageprint("loading")
+    imageprintFast("loading",0.002)
     mainscreen("You are in "+paradise)
 
 
@@ -279,6 +279,13 @@ def imageprint(image):
     for line in Images[image]:
         print line[:-1]
         time.sleep(0.02)
+
+def imageprintFast(image,speed):
+    for line in Images[image]:
+        print line[:-1]
+        time.sleep(speed)
+
+
 #-------------------------------
 if __name__ == "__main__":
     main()
