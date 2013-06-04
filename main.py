@@ -29,7 +29,9 @@ def main():
     imageload("help")
     imageload("banner")
     imageload("template")
+    imageload("preload")
     imageload("loading")
+    imageload("paradise")
     #begin
     mainscreen("How can I be of you service?")
     
@@ -237,8 +239,13 @@ def questions(number):
 
 
 def paradise(paradise):
+    os.system("clear")
+    imageprint("preload")
+    time.sleep(0.5)
     imageprintFast("loading",0.002)
-    mainscreen("You are in "+paradise)
+    imageprint("paradise")
+    raw_input("Press enter to continue")
+    mainscreen("How can I be of you service?")
 
 
 def mainscreen(message):
