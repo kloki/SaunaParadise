@@ -18,13 +18,12 @@
 # Koen Klinkers k.klinkers@gmail.com
 import os
 import time
-
+from Paradise import Paradise
 #load images
 Images={}
+Paradises={}
 
 def main():
-    imageload("roanne")
-    imageload("koen")
     imageload("whoami")
     imageload("help")
     imageload("banner")
@@ -32,9 +31,29 @@ def main():
     imageload("preload")
     imageload("loading")
     imageload("paradise")
+
+    Paradises["eden"]=Paradise("Eden Paradise","eden.wav","PLACEHOLDER")
+    Paradises["alyan"]=Paradise("Al-Yan Paradise","alyan.wav","PLACEHOLDER")
+    Paradises["anarchist"]=Paradise("Anarchists Paradise","anarchist.wav","PLACEHOLDER")
+    Paradises["belieber"]=Paradise("Beliebers Paradise","belieber.wav","PLACEHOLDER")
+    Paradises["communist"]=Paradise("Communist Paradise","communist.wav","PLACEHOLDER")
+    Paradises["dirtydancing"]=Paradise("Dirty Dancing Paradise","dirtydancing.wav","PLACEHOLDER")
+    Paradises["eurovision"]=Paradise("EuroVision Paradise","eurovision.wav","PLACEHOLDER")
+    Paradises["gangsta"]=Paradise("Gangster's Paradise","gangsta.wav","PLACEHOLDER")
+    Paradises["kaballa"]=Paradise("Kaballa Paradise","kaballa.wav","PLACEHOLDER")
+    Paradises["nirvana"]=Paradise("Nirvana Paradise","nirvana.wav","PLACEHOLDER")
+    Paradises["pageant"]=Paradise("Beauty Pageant Paradise","pageant.wav","PLACEHOLDER")
+    Paradises["pony"]=Paradise("Pony Lovers Paradise","pony.wav","PLACEHOLDER")
+    Paradises["scientology"]=Paradise("Scientology Paradise","scientology.wav","PLACEHOLDER")
+    Paradises["suits"]=Paradise("Suits Paradise","suits.wav","PLACEHOLDER")
+    Paradises["tax"]=Paradise("Tax Paradise","tax.wav","PLACEHOLDER")
+    Paradises["valinor"]=Paradise("Valinor Paradise","valinor.wav","PLACEHOLDER")
+    Paradises["vamparadise"]=Paradise("Vamparadise","vamparadise.wav","PLACEHOLDER")
+    Paradises["walhalla"]=Paradise("Walhalla Paradise","walhalla.wav","PLACEHOLDER")
+    Paradises["womb"]=Paradise("Mother's belly Paradise","womb.wav","PLACEHOLDER")
     #begin
     mainscreen("How can I be of you service?")
-    
+
 def organiser(answer):
     answer=sanatize(answer)
     words=answer.split()
@@ -45,15 +64,52 @@ def organiser(answer):
     elif answer=="paradise":
         questions(1)
     elif answer=="test":
-        playsound("Eden.wav")
-        showImage("template","this is the last line")
+        paradise("eden")
+        os.system("killall play")
+        paradise("alyan")
+        os.system("killall play")
+        paradise("anarchist")
+        os.system("killall play")
+        paradise("belieber")
+        os.system("killall play")
+        paradise("communist")
+        os.system("killall play")
+        paradise("dirtydancing")
+        os.system("killall play")
+        paradise("eurovision")
+        os.system("killall play")
+        paradise("gangsta")
+        os.system("killall play")
+        paradise("kaballa")
+        os.system("killall play")
+        paradise("nirvana")
+        os.system("killall play")
+        paradise("pageant")
+        os.system("killall play")
+        paradise("pony")
+        os.system("killall play")
+        paradise("scientology")
+        os.system("killall play")
+        paradise("suits")
+        os.system("killall play")
+        paradise("tax")
+        os.system("killall play")
+        paradise("valinor")
+        os.system("killall play")
+        paradise("vamparadise")
+        os.system("killall play")
+        paradise("walhalla")
+        os.system("killall play")
+        paradise("womb")
+        os.system("killall play")
+        
+        
         
     elif answer=="who are you" or answer=="what are you" or "p.a.r.a.d.i.s.e." in words:
         showImage("whoami", "")
-    elif "face" in words and "her" in words:
-        showImage("roanne", "this is her face")
-    elif "face" in words and "his" in words:
-        showImage("koen", "this is his face")
+    elif "stop" in words and ("music" in words or "sound" in words):
+        os.system("killall play")
+        mainscreen("Sorry, sometimes I get too excited.")
     elif "\"" in answer or "\'" in answer:
         mainscreen("These efforts are futile...............\n Laurens Aarnoudse")
     elif answer=="i love you":
@@ -187,7 +243,7 @@ def questions(number):
         if answer=="yes":
             paradise("eurovision")
         elif answer=="no":
-            paradise("pagent")
+            paradise("pageant")
         else:
             print "That is no valid answer."
             questions(12)
@@ -198,7 +254,7 @@ def questions(number):
         if answer=="baby oh":
             paradise("dirtydancing")
         elif answer=="baby no":
-            paradise("bebieber")
+            paradise("belieber")
         else:
             print "That is no valid answer."
             questions(13)
@@ -240,12 +296,13 @@ def questions(number):
 
 def paradise(paradise):
     os.system("clear")
-    imageprint("preload")
-    time.sleep(0.5)
-    imageprintFast("loading",0.002)
-    imageprint("paradise")
+    #imageprint("preload")
+    #time.sleep(0.5)
+    #imageprintFast("loading",0.002)
+    playsound(Paradises[paradise].song)
+    printParadise(paradise)
     raw_input("Press enter to continue")
-    mainscreen("How can I be of you service?")
+    #mainscreen("How can I be of you service?")
 
 
 def mainscreen(message):
@@ -262,8 +319,7 @@ def showImage(image,message):
     organiser(answer)
 
 def playsound(sound):
-    print "jee"
-    os.system("play sounds/Eden.wav -q 2>/dev/null &")
+    os.system("play sounds/"+sound+" -q 2>/dev/null &")
 
 def sanatize(answer):
     
@@ -286,6 +342,14 @@ def imageprint(image):
     for line in Images[image]:
         print line[:-1]
         time.sleep(0.02)
+
+def printParadise(paradise):
+    image=Images["paradise"][:]
+    image[10]=image[10].replace("X"*40,Paradises[paradise].name)
+    for line in image:
+        print line[:-1]
+        time.sleep(0.02)
+
 
 def imageprintFast(image,speed):
     for line in Images[image]:
