@@ -29,7 +29,9 @@ def main():
     imageload("help")
     imageload("banner")
     imageload("template")
+    imageload("preload")
     imageload("loading")
+    imageload("paradise")
     #begin
     mainscreen("How can I be of you service?")
     
@@ -43,7 +45,9 @@ def organiser(answer):
     elif answer=="paradise":
         questions(1)
     elif answer=="test":
+        playsound("Eden.wav")
         showImage("template","this is the last line")
+        
     elif answer=="who are you" or answer=="what are you" or "p.a.r.a.d.i.s.e." in words:
         showImage("whoami", "")
     elif "face" in words and "her" in words:
@@ -235,8 +239,13 @@ def questions(number):
 
 
 def paradise(paradise):
-    imageprint("loading")
-    mainscreen("You are in "+paradise)
+    os.system("clear")
+    imageprint("preload")
+    time.sleep(0.5)
+    imageprintFast("loading",0.002)
+    imageprint("paradise")
+    raw_input("Press enter to continue")
+    mainscreen("How can I be of you service?")
 
 
 def mainscreen(message):
@@ -251,6 +260,10 @@ def showImage(image,message):
     imageprint(image)
     answer=raw_input(message+"\ntype :    ")
     organiser(answer)
+
+def playsound(sound):
+    print "jee"
+    os.system("play sounds/Eden.wav -q 2>/dev/null &")
 
 def sanatize(answer):
     
@@ -273,6 +286,13 @@ def imageprint(image):
     for line in Images[image]:
         print line[:-1]
         time.sleep(0.02)
+
+def imageprintFast(image,speed):
+    for line in Images[image]:
+        print line[:-1]
+        time.sleep(speed)
+
+
 #-------------------------------
 if __name__ == "__main__":
     main()
