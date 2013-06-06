@@ -77,7 +77,7 @@ def questions(number):
         if answer=="yes":
             questions(3)
         elif answer=="no":
-            paradise("Walhalla")
+            paradise("walhalla")
         else:
             print "That is no valid answer."
             questions(2)
@@ -105,7 +105,7 @@ def questions(number):
         print "Is paradise run by guns or law?"
         answer=sanatize(raw_input("\ntype :    "))
         if answer=="guns":
-            paradis("gangsters")
+            paradis("gangsta")
         elif answer=="laws":
             questions(6)
         else:
@@ -115,9 +115,9 @@ def questions(number):
         print "The bold or the beautiful"
         answer=sanatize(raw_input("\ntype :    "))
         if answer=="bold":
-            paradise("Tax")
+            paradise("tax")
         elif answer=="beautiful":
-            paradise("Suits")
+            paradise("suits")
         else:
             print "That is no valid answer."
             questions(6)
@@ -147,7 +147,7 @@ def questions(number):
         print "No strings attached?"
         answer=sanatize(raw_input("\ntype :    "))
         if answer=="yes":
-            paradise("Nirvana")
+            paradise("nirvana")
         elif answer=="no":
             paradise("womb")
         else:
@@ -183,7 +183,7 @@ def questions(number):
         if answer=="yes":
             paradise("eurovision")
         elif answer=="no":
-            paradise("beatypagent")
+            paradise("pagent")
         else:
             print "That is no valid answer."
             questions(12)
@@ -194,7 +194,7 @@ def questions(number):
         if answer=="baby oh":
             paradise("dirtydancing")
         elif answer=="baby no":
-            paradise("bieber")
+            paradise("bebieber")
         else:
             print "That is no valid answer."
             questions(13)
