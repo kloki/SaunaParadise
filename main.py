@@ -32,27 +32,28 @@ def main():
     imageload("loading")
     imageload("paradise")
 
-    Paradises["eden"]=Paradise("Eden Paradise","eden.wav","PLACEHOLDER")
-    Paradises["alyan"]=Paradise("Al-Yan Paradise","alyan.wav","PLACEHOLDER")
-    Paradises["anarchist"]=Paradise("Anarchists Paradise","anarchist.wav","PLACEHOLDER")
-    Paradises["belieber"]=Paradise("Beliebers Paradise","belieber.wav","PLACEHOLDER")
-    Paradises["communist"]=Paradise("Communist Paradise","communist.wav","PLACEHOLDER")
-    Paradises["dirtydancing"]=Paradise("Dirty Dancing Paradise","dirtydancing.wav","PLACEHOLDER")
-    Paradises["eurovision"]=Paradise("EuroVision Paradise","eurovision.wav","PLACEHOLDER")
-    Paradises["gangsta"]=Paradise("Gangster's Paradise","gangsta.wav","PLACEHOLDER")
-    Paradises["kaballa"]=Paradise("Kaballa Paradise","kaballa.wav","PLACEHOLDER")
-    Paradises["nirvana"]=Paradise("Nirvana Paradise","nirvana.wav","PLACEHOLDER")
-    Paradises["pageant"]=Paradise("Beauty Pageant Paradise","pageant.wav","PLACEHOLDER")
-    Paradises["pony"]=Paradise("Pony Lovers Paradise","pony.wav","PLACEHOLDER")
-    Paradises["scientology"]=Paradise("Scientology Paradise","scientology.wav","PLACEHOLDER")
-    Paradises["suits"]=Paradise("Suits Paradise","suits.wav","PLACEHOLDER")
-    Paradises["tax"]=Paradise("Tax Paradise","tax.wav","PLACEHOLDER")
-    Paradises["valinor"]=Paradise("Valinor Paradise","valinor.wav","PLACEHOLDER")
-    Paradises["vamparadise"]=Paradise("Vamparadise","vamparadise.wav","PLACEHOLDER")
-    Paradises["walhalla"]=Paradise("Walhalla Paradise","walhalla.wav","PLACEHOLDER")
-    Paradises["womb"]=Paradise("Mother's belly Paradise","womb.wav","PLACEHOLDER")
+    Paradises["eden"]=Paradise("Eden Paradise","eden.wav","Evil is a snake, wisdom is an apple","and women are wise","welcome to paradise.")
+    Paradises["alyan"]=Paradise("Al-Yan Paradise","alyan.wav","Contrary to popular belief there are no virgins","here are 12 grapes.","")
+    Paradises["anarchist"]=Paradise("Anarchists Paradise","anarchist.wav","Infinite Starbucks windows to break.","You're welcome.","")
+    Paradises["belieber"]=Paradise("Beliebers Paradise","belieber.wav","Where monkeys don't require paperwork.","","")
+    Paradises["communist"]=Paradise("Communist Paradise","communist.wav","Your Trabant has finally arrived.","Welcome to paradise.","")
+    Paradises["consumer"]=Paradise("Consumer Communist Paradise","consumer.wav","Buy two sets of knives, get paradise for free.","","")
+    Paradises["dirtydancing"]=Paradise("Dirty Dancing Paradise","dirtydancing.wav","Patrick Swayze is still alive up here,","Welcome to paradise Baby.","")
+    Paradises["eurovision"]=Paradise("EuroVision Paradise","eurovision.wav","European unity in sassy outfits","Paradise is politics.","")
+    Paradises["gangsta"]=Paradise("Gangster's Paradise","gangsta.wav","Every step we make, every breath we take.","We'll be missing you.","")
+    Paradises["kaballa"]=Paradise("Kaballa Paradise","kaballa.wav","Here is your bracelet and your leotard","Let's dance","")
+    Paradises["nirvana"]=Paradise("Nirvana Paradise","nirvana.wav","Chanti,Chanti,Chanti","","")
+    Paradises["pageant"]=Paradise("Beauty Pageant Paradise","pageant.wav","You may not be wise, but your intentions are good.","Welcome to pageant paradise","")
+    Paradises["pony"]=Paradise("Pony Lovers Paradise","pony.wav","Two legs bad, four legs good","","")
+    Paradises["scientology"]=Paradise("Scientology Paradise","scientology.wav","This message will self-destruct in 10 seconds.","","XOXO L. Ron Hubbard.")
+    Paradises["suits"]=Paradise("Suits Paradise","suits.wav","There is no right or wrong here.","Only tailored justice.","")
+    Paradises["tax"]=Paradise("Tax Paradise","tax.wav","Think differently, welcome to iParadise.","","")
+    Paradises["valinor"]=Paradise("Valinor Paradise","valinor.wav","Wanna know where Frodo went?","","")
+    Paradises["vamparadise"]=Paradise("Vamparadise","vamparadise.wav","Now you'll have eternity to gaze and breath.."," in each others' faces","")
+    Paradises["walhalla"]=Paradise("Walhalla Paradise","walhalla.wav","You have fought brave in battle,"," but now it is time to join the hall of the slain "," and enjoy the eternal beergarten.")
+    Paradises["womb"]=Paradise("Mother's belly Paradise","womb.wav","Paradise is like being forced-fed on a waterbed.","","")
     #begin
-    mainscreen("How can I be of you service?")
+    mainscreen("How can I be of your service?")
 
 def organiser(answer):
     answer=sanatize(answer)
@@ -73,6 +74,8 @@ def organiser(answer):
         paradise("belieber")
         os.system("killall play")
         paradise("communist")
+        os.system("killall play")
+        paradise("consumer")
         os.system("killall play")
         paradise("dirtydancing")
         os.system("killall play")
@@ -274,7 +277,7 @@ def questions(number):
         print "Is it almost impossible to get into paradise?"
         answer=sanatize(raw_input("\ntype :    "))
         if answer=="yes":
-            paradise("kaballa")
+            paradise("scientology")
         elif answer=="no":
             paradise("kaballa")
         else:
@@ -296,13 +299,13 @@ def questions(number):
 
 def paradise(paradise):
     os.system("clear")
-    #imageprint("preload")
-    #time.sleep(0.5)
-    #imageprintFast("loading",0.002)
+    imageprint("preload")
+    time.sleep(0.5)
+    imageprintFast("loading",0.002)
     playsound(Paradises[paradise].song)
     printParadise(paradise)
     raw_input("Press enter to continue")
-    #mainscreen("How can I be of you service?")
+    mainscreen("How can I be of you service?")
 
 
 def mainscreen(message):
@@ -346,6 +349,9 @@ def imageprint(image):
 def printParadise(paradise):
     image=Images["paradise"][:]
     image[10]=image[10].replace("X"*40,Paradises[paradise].name)
+    image[14]=image[14].replace("X"*49,Paradises[paradise].text1)
+    image[15]=image[15].replace("X"*49,Paradises[paradise].text2)
+    image[16]=image[16].replace("X"*49,Paradises[paradise].text3)
     for line in image:
         print line[:-1]
         time.sleep(0.02)

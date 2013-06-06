@@ -17,11 +17,13 @@
 
 class Paradise(object):
 
-    def __init__(self,name,song,text):
+    def __init__(self,name,song,text1,text2,text3):
+        
         self.name=name+(" "*(40-len(name)))
         self.song=song
-        self.text=text
-
+        self.text1=text1+(" "*(49-len(text1)))
+        self.text2=text2+(" "*(49-len(text2)))
+        self.text3=text3+(" "*(49-len(text3)))
     def __str__(self):
         pass
 
