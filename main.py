@@ -50,7 +50,7 @@ def main():
     Paradises["tax"]=Paradise("Tax Paradise","tax.wav","Think differently, welcome to iParadise.","","")
     Paradises["valinor"]=Paradise("Valinor Paradise","valinor.wav","Wanna know where Frodo went?","","")
     Paradises["vamparadise"]=Paradise("Vamparadise","vamparadise.wav","Now you'll have eternity to gaze and breath.."," in each others' faces","")
-    Paradises["walhalla"]=Paradise("Walhalla Paradise","walhalla.wav","You have fought brave in battle,"," but now it is time to join the hall of the slain "," and enjoy the eternal beergarten.")
+    Paradises["walhalla"]=Paradise("Walhalla Paradise","walhalla.wav","You have fought brave in battle,","but now it is time to join the hall of the slain ","and enjoy the eternal beergarten.")
     Paradises["womb"]=Paradise("Mother's belly Paradise","womb.wav","Paradise is like being forced-fed on a waterbed.","","")
     #begin
     mainscreen("How can I be of your service?")
@@ -124,6 +124,7 @@ def questions(number):
 
     if number == 1:
         print "Do you need to die for paradise? Yes, no or only on the inside."
+        os.system("espeak \"Do you need to die for paradise? Yes, no or only on the inside.\" >/dev/null 2> /dev/null")
         answer=sanatize(raw_input("\ntype :    "))
         if answer=="yes":
             questions(2)
@@ -133,9 +134,11 @@ def questions(number):
             questions(10)  
         else:
             print "That is no valid answer."
+            os.system("espeak \"That is no valid answer.\" >/dev/null 2> /dev/null")
             questions(1)
     elif number == 2:
         print "Aah, the conservative type, Less is more?"
+        os.system("espeak \"Aah, the conservative type, Less is more?\" >/dev/null 2> /dev/null")
         answer=sanatize(raw_input("\ntype :    "))
         if answer=="yes":
             questions(3)
@@ -143,9 +146,11 @@ def questions(number):
             paradise("walhalla")
         else:
             print "That is no valid answer."
+            os.system("espeak \"That is no valid answer.\" >/dev/null 2> /dev/null")
             questions(2)
     elif number == 3:
         print "Is bacon important in your life?"
+        os.system("espeak \"Is bacon important in your life?\" >/dev/null 2> /dev/null")
         answer=sanatize(raw_input("\ntype :    "))
         if answer=="yes":
             paradise("eden")
@@ -153,9 +158,11 @@ def questions(number):
             paradise("alyan")
         else:
             print "That is no valid answer."
+            os.system("espeak \"That is no valid answer.\" >/dev/null 2> /dev/null")
             questions(3)
     elif number == 4:
         print "Can you buy paradise?"
+        os.system("espeak \"Can you buy paradise?\" >/dev/null 2> /dev/null")
         answer=sanatize(raw_input("\ntype :    "))
         if answer=="yes":
             questions(5)
@@ -163,9 +170,11 @@ def questions(number):
             questions(7)
         else:
             print "That is no valid answer."
+            os.system("espeak \"That is no valid answer.\" >/dev/null 2> /dev/null")
             questions(4)
     elif number == 5:
         print "Is paradise run by guns or law?"
+        os.system("espeak \"Is paradise run by guns or law?\" >/dev/null 2>/dev/null")
         answer=sanatize(raw_input("\ntype :    "))
         if answer=="guns":
             paradis("gangsta")
@@ -173,9 +182,11 @@ def questions(number):
             questions(6)
         else:
             print "That is no valid answer."
+            os.system("espeak \"That is no valid answer.\" >/dev/null 2> /dev/null")
             questions(5)
     elif number == 6:
-        print "The bold or the beautiful"
+        print "The bold or the beautiful?"
+        os.system("espeak \"The bold or the beautiful\" >/dev/null 2>/dev/null")
         answer=sanatize(raw_input("\ntype :    "))
         if answer=="bold":
             paradise("tax")
@@ -183,9 +194,11 @@ def questions(number):
             paradise("suits")
         else:
             print "That is no valid answer."
+            os.system("espeak \"That is no valid answer.\" >/dev/null 2> /dev/null")
             questions(6)
     elif number == 7:
         print "There is no I in team?"
+        os.system("espeak \"There is no I in team\" >/dev/null 2>/dev/null")
         answer=sanatize(raw_input("\ntype :    "))
         if answer=="yes":
             questions(8)
@@ -193,21 +206,25 @@ def questions(number):
             questions(9)
         else:
             print "That is no valid answer."
+            os.system("espeak \"That is no valid answer.\" >/dev/null 2> /dev/null")
             questions(7)
     elif number == 8:
-        print "How long would you stay in paradis? \n As long as I want. \n I have a 5 year plan. \n For eternity. "
+        print "How long would you stay in paradise? \nAs long as I want. \nI have a 5 year plan. \nFor eternity. "
+        os.system("espeak \"How long would you stay in paradise?  As long as I want.  I have a 5 year plan.  For eternity.\" >/dev/null 2>/dev/null")
         answer=sanatize(raw_input("\ntype :    "))
         if answer=="As long as I want":
             paradise("anarchist")
-        elif answer=="i have a 5 year plan":
+        elif answer=="i have a 5 year plan"or answer=="5 year plan":
             paradise("communist")
         elif answer=="for eternity":
             paradise("valinor")
         else:
             print "That is no valid answer."
+            os.system("espeak \"That is no valid answer.\" >/dev/null 2> /dev/null")
             questions(8)
     elif number == 9:
         print "No strings attached?"
+        os.system("espeak \"No strings attached?\" >/dev/null 2>/dev/null")
         answer=sanatize(raw_input("\ntype :    "))
         if answer=="yes":
             paradise("nirvana")
@@ -215,10 +232,12 @@ def questions(number):
             paradise("womb")
         else:
             print "That is no valid answer."
+            os.system("espeak \"That is no valid answer.\" >/dev/null 2> /dev/null")
             questions(9)
         
     elif number == 10:
         print "In paradise, will you express yourself with your body"
+        os.system("espeak \"In paradise, will you express yourself with your body\" >/dev/null 2>/dev/null")
         answer=sanatize(raw_input("\ntype :    "))
         if answer=="yes":
             questions(11)
@@ -226,11 +245,13 @@ def questions(number):
             questions(14)
         else:
             print "That is no valid answer."
+            os.system("espeak \"That is no valid answer.\" >/dev/null 2> /dev/null")
             questions(10)
 
 
     elif number == 11:
         print "Are there losers in paradise?"
+        os.system("espeak \"Are there losers in paradise?\" >/dev/null 2>/dev/null")
         answer=sanatize(raw_input("\ntype :    "))
         if answer=="yes":
             questions(12)
@@ -238,10 +259,12 @@ def questions(number):
             questions(13)
         else:
             print "That is no valid answer."
+            os.system("espeak \"That is no valid answer.\" >/dev/null 2> /dev/null")
             questions(11)
     
     elif number == 12:
         print "Is nationality important in paradise?"
+        os.system("espeak \"Is nationality important in paradise?\" >/dev/null 2>/dev/null")
         answer=sanatize(raw_input("\ntype :    "))
         if answer=="yes":
             paradise("eurovision")
@@ -249,10 +272,12 @@ def questions(number):
             paradise("pageant")
         else:
             print "That is no valid answer."
+            os.system("espeak \"That is no valid answer.\" >/dev/null 2> /dev/null")
             questions(12)
 
     elif number == 13:
         print "Baby oh OR Baby no?"
+        os.system("espeak \"Baby oh OR Baby no?\" >/dev/null 2>/dev/null")
         answer=sanatize(raw_input("\ntype :    "))
         if answer=="baby oh":
             paradise("dirtydancing")
@@ -260,10 +285,12 @@ def questions(number):
             paradise("belieber")
         else:
             print "That is no valid answer."
+            os.system("espeak \"That is no valid answer.\" >/dev/null 2> /dev/null")
             questions(13)
             
     elif number == 14:
         print "Fame or fortune?"
+        os.system("espeak \"\" >/dev/null 2>/dev/null")
         answer=sanatize(raw_input("\ntype :    "))
         if answer=="fame":
             questions(15)
@@ -271,10 +298,12 @@ def questions(number):
             questions(16)
         else:
             print "That is no valid answer."
+            os.system("espeak \"That is no valid answer.\" >/dev/null 2> /dev/null")
             questions(14)
 
     elif number == 15:
         print "Is it almost impossible to get into paradise?"
+        os.system("espeak \"Is it almost impossible to get into paradise?\" >/dev/null 2>/dev/null")
         answer=sanatize(raw_input("\ntype :    "))
         if answer=="yes":
             paradise("scientology")
@@ -282,10 +311,12 @@ def questions(number):
             paradise("kaballa")
         else:
             print "That is no valid answer."
+            os.system("espeak \"That is no valid answer.\" >/dev/null 2> /dev/null")
             questions(15)
 
     elif number == 16:
         print "Is fortune unlimited or soulless?"
+        os.system("espeak \"Is fortune unlimited or soulless?\" >/dev/null 2>/dev/null")
         answer=sanatize(raw_input("\ntype :    "))
         if answer=="umlimited":
             paradise("pony")
@@ -293,6 +324,7 @@ def questions(number):
             paradise("vamparadise")
         else:
             print "That is no valid answer."
+            os.system("espeak \"That is no valid answer.\" >/dev/null 2> /dev/null")
             questions(16)
 
 
@@ -301,7 +333,10 @@ def paradise(paradise):
     os.system("clear")
     imageprint("preload")
     time.sleep(0.5)
-    imageprintFast("loading",0.002)
+    playsound("aloopisahole3.aif")
+    imageprintFast("loading",0.018)
+    os.system("killall play")
+    time.sleep(0.5)
     playsound(Paradises[paradise].song)
     printParadise(paradise)
     raw_input("Press enter to continue")
@@ -311,6 +346,7 @@ def paradise(paradise):
 def mainscreen(message):
     os.system("clear")
     imageprint("banner")
+    os.system("espeak \""+message+"\" >/dev/null 2>/dev/null &")
     answer=raw_input(message+"\ntype :    ")
     organiser(answer)
 
