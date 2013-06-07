@@ -64,6 +64,10 @@ def organiser(answer):
         showImage("help","")
     elif answer=="paradise":
         questions(1)
+    elif answer=="music":
+	os.system("mocp")
+	os.system("mocp -s")
+	mainscreen("Now, back to some less trivial tasks.")
     elif answer=="test":
         paradise("eden")
         os.system("killall play")
