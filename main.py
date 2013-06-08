@@ -58,23 +58,26 @@ def main():
     mainscreen("How can I be of your service?")
 
 def organiser(answer):
+    os.system("killall espeak 2>/dev/null")
     answer=sanatize(answer)
     words=answer.split()
     if answer=="exit":
         exit()
     elif answer=="help":
         showImage("help","")
+    elif answer=="bonanza":
+        questions(0)
     elif "paradise" in words:
         
         if Human:
-            questions(1)
+            questions(0)
         else:
-            mainscreen("I cannot evaluate you yet, as I am not sure you are human.")
-    elif "human" in words:
-        mainscreen("To evaluate your humanity will test you on your creativity. Aks me a riddle.")
+            mainscreen("I cannot evaluate you yet, as I am not sure you are human. Do the human evaluation test.")
+    elif "human" in words or "test" in words or "do" in words:
+        mainscreen("To evaluate your humanity will test you on your creativity. I will test you with a riddle. Type riddle.")
     elif "riddle" in words:
         riddle()
-    elif answer=="test":
+    elif answer=="test" and answer=="t":
         paradise("eden")
         os.system("killall play")
         paradise("alyan")
@@ -137,14 +140,14 @@ def organiser(answer):
         mainscreen("I love you to!")
     elif "maker" in words:
         mainscreen("I've seen things you people wouldn't believe. Attack ships on fire off\nthe shoulder of Orion. I've watched c-beams glitter in the dark near\nthe Tannhauser Gate. All those moments will be lost in time, like tears in rain.\n\nAs is the knowledge of my maker. ")
-    elif "why" in words:
+    elif "why" in words or "meaning" in words or "god" in words or "life" in words:
         mainscreen("To reach paradise.")
     else:
         mainscreen("I dont understand, you have to ask the correct questions.\n try again or type \"help\".")
 
 def questions(number):
 
-    if number == 1:
+    if number == 0:
 
 
         print "Now I am going to ask you some questions to dertmine wich paradise suits you best."
@@ -152,7 +155,8 @@ def questions(number):
         
         print "Lets start."
         os.system("espeak \"Lets start.\" >/dev/null 2> /dev/null")
-        
+        questions(1)
+    elif number==1: 
         print "Do you need to die for paradise? Yes, no or only on the inside."
         os.system("espeak \"Do you need to die for paradise? Yes, no or only on the inside.\" >/dev/null 2> /dev/null")
         answer=sanatize(raw_input("\ntype :    "))
@@ -243,6 +247,7 @@ def questions(number):
         print "How long would you stay in paradise? \nAs long as I want. \nI have a 5 year plan. \nFor eternity. "
         os.system("espeak \"How long would you stay in paradise?  As long as I want.  I have a 5 year plan.  For eternity.\" >/dev/null 2>/dev/null")
         answer=sanatize(raw_input("\ntype :    "))
+        words=answer.split()
         if answer=="As long as I want" or ("long" in words and "want" in words):
             paradise("anarchist")
         elif answer=="i have a 5 year plan"or answer=="5 year plan" or "5" in words:
@@ -380,12 +385,14 @@ def paradise(paradise):
 
 
 def riddle():
+    
     global Sound
     if Sound==False:
         playsound("amirdronewithamirstiefcollectief.aif")
         Sound=True
     imageprint("riddle")
     os.system("espeak \"Take your time and think carefully about your answer.\" >/dev/null 2>/dev/null &")
+    os.system("killall espeak")
     answer=raw_input("Answer a,b,c or d :    ")
     if answer=="b":
         print "Correct, you either have shown creativity by solving the riddle or have cheated and tried all options. Cheating is also a human habit."
@@ -393,16 +400,17 @@ def riddle():
         os.system("clear")
         os.system("espeak \"One more question: You're watching a stage play. A banquet is in progress. The guests are enjoying an appetizer of raw oysters. The entree consists of boiled dog stuffed with rice. Which is less acceptable to you.\" >/dev/null 2>/dev/null &")
         print "One more question: You're watching a stage play.\nA banquet is in progress. The guests are enjoying an appetizer of raw oysters.\nThe entree consists of boiled dog stuffed with rice.\nWhich is less acceptable to you." 
-        words=sanatize(raw_input("type :   ")).split()
+        words=sanatize(raw_input("Boiled dog or raw oysters :   ")).split()
         if "dog" in words:
             global Human
             Human=True
-            mainscreen("Now I consider you as human.")
+            mainscreen("Now I consider you as human. The keyword for humans is bonanza.")
         else:
-            mainscreen("That is not an appropiate answer.")
+            mainscreen("You failed, please try the riddle again.")
     else:
        mainscreen("That is not correct, ask for the riddle again.") 
 def mainscreen(message):
+    os.system("killall espeak 2>/dev/null")
     os.system("clear")
     imageprint("banner")
     os.system("espeak \""+message+"\" >/dev/null 2>/dev/null &")
@@ -421,7 +429,7 @@ def playsound(sound):
 
 def sanatize(answer):
     
-    blacklist=[".",",","!","?"]
+    blacklist=[".",",","!","?","\"","'"]
     answer=answer.lower()
     newanswer=""
     for i in answer:
