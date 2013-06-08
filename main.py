@@ -23,6 +23,7 @@ from Paradise import Paradise
 Images={}
 Paradises={}
 Human=False
+Sound=False
 def main():
     imageload("whoami")
     imageload("help")
@@ -31,6 +32,7 @@ def main():
     imageload("preload")
     imageload("loading")
     imageload("paradise")
+    imageload("riddle")
 
     Paradises["eden"]=Paradise("Eden Paradise","eden.wav","Evil is a snake, wisdom is an apple","and women are wise","welcome to paradise.")
     Paradises["alyan"]=Paradise("Al-Yan Paradise","alyan.wav","Contrary to popular belief there are no virgins","here are 12 grapes.","")
@@ -113,10 +115,6 @@ def organiser(answer):
         os.system("killall play")
         paradise("womb")
         os.system("killall play")
-    elif answer=="ttt":
-        print Human
-        
-        
     elif answer=="who are you" or answer=="what are you" or answer=="what can you do" or "p.a.r.a.d.i.s.e." in words or "purpose" in words:
         showImage("whoami", "")
     elif answer=="how are you" or answer=="whats up":
@@ -125,8 +123,11 @@ def organiser(answer):
         mainscreen("Ok, lets get back to why we are here.")
     elif "stop" in words and ("music" in words or "sound" in words):
         os.system("killall play")
+        global sound
+        sound=False
         mainscreen("Sorry, sometimes I get too excited.")
     elif "music" in words:
+        os.system("killall play")
 	os.system("mocp")
 	os.system("mocp -s")
 	mainscreen("Now, back to some less trivial tasks.")
@@ -372,15 +373,24 @@ def paradise(paradise):
     printParadise(paradise)
     raw_input("Press enter to continue")
     global Human
+    global Sound
     Human=False
+    Sound=False
     mainscreen("How can I be of you service?")
 
 
 def riddle():
-    playsound("amirdronewithamirstiefcollectief.aif")
-    os.system("espeak \"blabla\" >/dev/null 2>/dev/null &")
-    answer=raw_input("Here is riddle I dont now yet. \ntype :    ")
-    if answer=="yes":
+    global Sound
+    if Sound==False:
+        playsound("amirdronewithamirstiefcollectief.aif")
+        Sound=True
+    imageprint("riddle")
+    os.system("espeak \"Take your time and think carefully about your answer.\" >/dev/null 2>/dev/null &")
+    answer=raw_input("Answer a,b,c or d :    ")
+    if answer=="b":
+        print "Correct, you either have shown creativity by solving the riddle or have cheated and tried all options. Cheating is also a human habit."
+        os.system("espeak \"Correct, you either have shown creativity by solving the riddle or have cheated and tried all options. Cheating is also a human habit.\" >/dev/null 2>/dev/null ")
+        os.system("clear")
         os.system("espeak \"One more question: You're watching a stage play. A banquet is in progress. The guests are enjoying an appetizer of raw oysters. The entree consists of boiled dog stuffed with rice. Which is less acceptable to you.\" >/dev/null 2>/dev/null &")
         print "One more question: You're watching a stage play.\nA banquet is in progress. The guests are enjoying an appetizer of raw oysters.\nThe entree consists of boiled dog stuffed with rice.\nWhich is less acceptable to you." 
         words=sanatize(raw_input("type :   ")).split()
@@ -392,9 +402,6 @@ def riddle():
             mainscreen("That is not an appropiate answer.")
     else:
        mainscreen("That is not correct, ask for the riddle again.") 
-
-
-
 def mainscreen(message):
     os.system("clear")
     imageprint("banner")
@@ -449,6 +456,7 @@ def imageprintFast(image,speed):
     for line in Images[image]:
         print line[:-1]
         time.sleep(speed)
+
 
 
 #-------------------------------
