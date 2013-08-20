@@ -1,6 +1,11 @@
 SaunaParadise
 =============
 
+Made by Kloki 
+k.klinkers@gmail.com
+with
+<www.stiefcollectief.nl>
+
 This requires espeak and sox to work. To install:
 
 sudo apt-get install espeak sox
